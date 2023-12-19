@@ -13,19 +13,19 @@ const validationSchema = yup.object().shape({
   cpf: yup.string().required("CPF é Obrigatório"),
   sexo: yup.string().required("Sexo é obrigatório"),
   dataDeNascimento: yup.string().required("Data de nascimento é obrigatório"),
-  email: yup.string().email().required("Email é obrigatório"),
-  cep: yup.string().required("CEP é Obrigatório"),
-  logradouro: yup.string().required("Sexo é obrigatório"),
-  bairro: yup.string().required("Sexo é obrigatório"),
-  numero: yup.string().required("Sexo é obrigatório"),
-  uf: yup.string().required("Sexo é obrigatório"),
-  localidade: yup.string().required("Sexo é obrigatório"),
-  pais: yup.string().required("Sexo é obrigatório"),
-  complemento: yup.string().required("Sexo é obrigatório"),
-  nomeResponsavel: yup.string().required("Sexo é obrigatório"),
-  tipoResponsavel: yup.string().required("Sexo é obrigatório"),
-  telefone: yup.string().required("Sexo é obrigatório"),
-  tipoDeContato: yup.string().required("Sexo é obrigatório"),
+  email: yup.string().email().required("email é obrigatório"),
+  cep: yup.string().required("cep é Obrigatório"),
+  logradouro: yup.string().required("logradouro é obrigatório"),
+  bairro: yup.string().required("bairro é obrigatório"),
+  numero: yup.string().required("numero é obrigatório"),
+  uf: yup.string().required("UF é obrigatório"),
+  localidade: yup.string().required("Localidade é obrigatório"),
+  pais: yup.string().required("Pais é obrigatório"),
+  complemento: yup.string().required("Complemento é obrigatório"),
+  nomeResponsavel: yup.string().required("Nome responsável é obrigatório"),
+  tipoResponsavel: yup.string().required("Tipo de Responsável é obrigatório"),
+  telefone: yup.string().required("telefone é obrigatório"),
+  tipoDeContato: yup.string().required("Tipo de contato é obrigatório"),
 })
 
 type Crianca = {
@@ -127,7 +127,7 @@ export default function CadastrarCrianca() {
               </Grid>
               <Grid xs={3}>
               <label className='mb-5' htmlFor="tipoResponsavel">Tipo de Responsável:</label>
-               <input  id='tipoResponsavel' placeholder='Digite um cpf...' className='border-b-gray-500 select-none border-b-2 px-3 py-[5px] w-full' type="text" {...register('tipoResponsavel')}/>
+               <input  id='tipoResponsavel' placeholder='Digite o tipo do responsável...' className='border-b-gray-500 select-none border-b-2 px-3 py-[5px] w-full' type="text" {...register('tipoResponsavel')}/>
               {errors.tipoResponsavel && <p>{errors.tipoResponsavel.message}</p>}
               </Grid>
             </Grid>
@@ -149,7 +149,7 @@ export default function CadastrarCrianca() {
               </Grid>
               <Grid xs={3}>
               <label className='mb-5' htmlFor="numero">Número:</label>
-               <input  id='numero' placeholder='Digite um numero...' className='border-b-gray-500 select-none border-b-2 px-3 py-[5px] w-full' type="string" {...register('numero')}/>
+               <input  id='numero' placeholder='Digite um numero...' className='border-b-gray-500 select-none border-b-2 px-3 py-[5px] w-full' type="number" {...register('numero')}/>
               {errors.numero && <p>{errors.numero?.message}</p>}
               </Grid>
             </Grid>

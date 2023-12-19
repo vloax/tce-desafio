@@ -11,10 +11,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: '#379DFFE5',
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -33,6 +36,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 type Crianca = {
+  id: number;
   nome: string;
   cpf: string;
   sexo: string;
@@ -54,13 +58,17 @@ type Crianca = {
 
 export default function CriancasListView() {
 
-  const [crianca, setCrianca] = React.useState([]);
+  const [crianca, setCrianca] = React.useState<Crianca[]>([]);
 
   async function fetchData() {
-    const response = await fetch<Crianca>('http://localhost:3000/criancas');
+    const response = await fetch('http://localhost:3000/criancas');
     let data = await response.json();
     setCrianca(data);
   }
+
+  React.useEffect(() => {
+    fetchData();
+  }, [])
 
   return (
     <div>
@@ -97,25 +105,44 @@ export default function CriancasListView() {
             Novo
           </button>
         </Link>
-
-        <TableContainer component={Paper}>
+      </div>
+      
+      <div className='mx-12 mt-8'>
+      <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
+            <StyledTableCell>ID</StyledTableCell>
             <StyledTableCell>Nome da Criança</StyledTableCell>
             <StyledTableCell align="right">CPF</StyledTableCell>
             <StyledTableCell align="right">Nome do Responsável</StyledTableCell>
             <StyledTableCell align="right">Email</StyledTableCell>
+            <StyledTableCell align="right">Ações</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {crianca.map((crianca) => (
-            <StyledTableRow key={crianca?.nome}>
+            <StyledTableRow key={crianca?.id}>
+              <StyledTableCell component="th" scope="row">
+                {crianca.id}
+              </StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {crianca.nome}
+              </StyledTableCell>
               <StyledTableCell component="th" scope="row">
                 {crianca.cpf}
               </StyledTableCell>
               <StyledTableCell align="right">{crianca.nomeResponsavel}</StyledTableCell>
               <StyledTableCell align="right">{crianca.email}</StyledTableCell>
+              <StyledTableCell align="right"><IconButton onClick={() => {
+                                fetch(`http://localhost:3000/criancas/${crianca.id}`, {
+                                  method: 'DELETE'
+                                })
+                                .then(() => fetchData())
+              }} aria-label="delete" size="large">
+  <DeleteIcon fontSize="inherit" />
+</IconButton></StyledTableCell>
+              
             </StyledTableRow>
           ))}
         </TableBody>
