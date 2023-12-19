@@ -1,0 +1,62 @@
+{
+  "criancas": [
+    {
+      "id": 1,
+      "nome": "string",
+      "cpf": "string",
+      "sexo": "string",
+      "dataDeNascimento": "string",
+      "email": "string",
+      "cep": "string",
+      "logradouro": "string",
+      "bairro": "string",
+      "numero": "string",
+      "uf": "string",
+      "localidade": "string",
+      "pais": "string",
+      "complemento": "string",
+      "nomeResponsavel": "string",
+      "tipoResponsavel": "string",
+      "telefone": "string",
+      "tipoDeContato": "string"
+    },
+    {
+      "nome": "SADASDASD",
+      "cpf": "asdd",
+      "sexo": "dadad",
+      "dataDeNascimento": "2023-11-30",
+      "nomeResponsavel": "SADASDASD",
+      "tipoResponsavel": "SADASDASD",
+      "cep": "76901042",
+      "logradouro": "CASA",
+      "numero": "32121",
+      "bairro": "asdsadsad",
+      "complemento": "asdasd",
+      "localidade": "SADASDASD",
+      "uf": "asdasd",
+      "telefone": "asdasd",
+      "tipoDeContato": "dasd",
+      "email": "213213@gmail.com",
+      "id": 2
+    },
+    {
+      "nome": "SADASDASD",
+      "cpf": "asdd",
+      "sexo": "dadad",
+      "dataDeNascimento": "2023-12-01",
+      "nomeResponsavel": "SADASDASD",
+      "tipoResponsavel": "SADASDASD",
+      "cep": "76901042",
+      "logradouro": "CASA",
+      "numero": "32121",
+      "bairro": "asdsadsad",
+      "complemento": "asdasd",
+      "localidade": "SADASDASD",
+      "uf": "asdasd",
+      "telefone": "asdasd",
+      "tipoDeContato": "dasd",
+      "email": "213213@gmail.com",
+      "id": 3
+    }
+  ]
+}
